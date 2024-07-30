@@ -76,6 +76,7 @@ def trimAndLoadJson(
     jsonStr = input_string[start:end] if start != -1 and end != 0 else ""
 
     try:
+	jsonStr=jsonStr.replace('\\','\\\\')
         return json.loads(jsonStr)
     except json.JSONDecodeError:
         error_str = "Evaluation LLM outputted an invalid JSON. Please use a better evaluation model."
